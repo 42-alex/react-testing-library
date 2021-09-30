@@ -5,7 +5,6 @@ describe('SearchContainer', () => {
   it('create snapshot of SearchContainer component', async () => {
     const { asFragment } = render(<SearchContainer />);
 
-    expect(asFragment(<SearchContainer />)).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   })
-
 })
