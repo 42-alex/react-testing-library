@@ -10,6 +10,9 @@ import { screen, render } from '@testing-library/react';
 // getByDisplayValue()
 // getByTestId()
 
+// there are two other types: "queryBy" and "findBy"
+// as well it is possible to search plural elements: "getAllByText", "getAllByRole" etc.w
+
 
 const HelloWorldComponent = () => {
   const [textAreaValue, setTextAreaValue] = React.useState('this is for test purposes')
@@ -63,6 +66,7 @@ describe('Example of all getBy functions', () => {
       .toBeInTheDocument();
   })
 
+  // ususally used for checking default values of form elements
   it('getByDisplayValue()', () => {
     render(<HelloWorldComponent />);
 

@@ -1,7 +1,7 @@
 Type       | No Match | 1 Match | 1+ Match | Await? | Comment
 
 getBy	    throw	    return	  throw	     No       use it when you expect element in html
-findBy	    throw	    return	  throw	     Yes      use it when you expect element in html asynchronously (e.g. as fetch or axios result)
+findBy	    throw	    return	  throw	     Yes      use it when you expect element in html asynchronously, after re-render (e.g. as fetch or axios result)
 queryBy	    null	    return	  throw	     No       use it when you don't expect element in html
 getAllBy	throw	    array	  array	     No
 findAllBy	throw	    array	  array	     Yes

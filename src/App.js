@@ -1,11 +1,15 @@
-import SearchWrapper from './Components/Search/SearchWrapper/SearchWrapper';
+import SearchContainer from './Components/Search/SearchContainer/SearchContainer';
+import UserStatus from './Components/UserStatus/UserStatus';
+import Stories from './Components/Stories/Stories';
 
 
 function App() {
 
   return (
     <div>
-      <SearchWrapper />
+      <SearchContainer />
+      <UserStatus />
+      <Stories />
     </div>
   );
 }

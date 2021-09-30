@@ -1,0 +1,31 @@
+toBeNull
+toBeDisabled
+toBeEnabled
+toBeEmpty
+toBeEmptyDOMElement
+toBeInTheDocument
+toBeInvalid
+toBeRequired
+toBeValid
+toBeVisible
+toContainElement
+toContainHTML
+toHaveAttribute
+toHaveClass
+toHaveFocus
+toHaveFormValues
+toHaveStyle
+toHaveTextContent
+toHaveValue
+toHaveDisplayValue
+toBeChecked
+toBePartiallyChecked
+toHaveDescription
+
+// Example:
+// expect(screen.queryByText(/Signed in as/)).toBeNull
+// or
+// expect(screen.queryByText(/Signed in as/)).toHaveFocus
+
+// if we want to check the negation use ".not" before the assertive function
+// expect(screen.getByRole('textbox')).not.toBeRequired

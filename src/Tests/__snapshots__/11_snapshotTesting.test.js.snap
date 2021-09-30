@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchContainer create snapshot of SearchContainer component 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <label
+        for="search"
+      >
+        Search:
+      </label>
+      <input
+        id="search"
+        type="text"
+        value=""
+      />
+    </div>
+    <p>
+      Looking for ...
+    </p>
+  </div>
+</DocumentFragment>
+`;

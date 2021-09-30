@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Search from '../Search';
 
 
-const SearchWrapper = () => {
+const SearchContainer = () => {
 
   const [search, setSearch] = useState('');
 
@@ -22,4 +22,4 @@ const SearchWrapper = () => {
 
 };
 
-export default SearchWrapper;
+export default SearchContainer;

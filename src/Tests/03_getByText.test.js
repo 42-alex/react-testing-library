@@ -1,10 +1,10 @@
 import { screen, render } from '@testing-library/react';
-import SearchWrapper from '../Components/Search/SearchWrapper/SearchWrapper';
+import SearchContainer from '../Components/Search/SearchContainer/SearchContainer';
 
 // check if the element with given text is in document
-describe('SearchWrapper - getByText [explicitly]', () => {
+describe('SearchContainer - getByText [explicitly]', () => {
   it('element with text "Search:" is in the document [explicitly]', () => {
-    render(<SearchWrapper />);
+    render(<SearchContainer />);
 
     expect(screen.getByText('Search:')).toBeInTheDocument();
   })
@@ -13,9 +13,9 @@ describe('SearchWrapper - getByText [explicitly]', () => {
 // we can do the same as implicit assertion (неявно)
 // because getByText() throws an error by default if the element cannot be found
 // but it is NOT RECOMMENDED way of using
-describe('SearchWrapper - getByText [implicitly]', () => {
+describe('SearchContainer - getByText [implicitly]', () => {
   it('element with text "Search:" is in the document [implicitly]', () => {
-    render(<SearchWrapper />);
+    render(<SearchContainer />);
 
     screen.getByText('Search:')  // if there is no such element it returns something like this "return throw new Error()"
                                       // so formally there is no need to wrap it with expect(). But it is not obvious and less readable
@@ -24,9 +24,9 @@ describe('SearchWrapper - getByText [implicitly]', () => {
 
 
 // we can also pass a regular expression to getByText()
-describe('SearchWrapper - getByText [regular expression]', () => {
+describe('SearchContainer - getByText [regular expression]', () => {
   it('element with text "Search:" is in the document [regular expression]', () => {
-    render(<SearchWrapper />);
+    render(<SearchContainer />);
 
     // succeeds
     expect(screen.getByText(/Search/)).toBeInTheDocument();  // succeeds because a regular expression used as partial match
