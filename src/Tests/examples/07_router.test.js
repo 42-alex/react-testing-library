@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter } from "react-router";
 import { Link, Route, Router, Switch, useParams } from "react-router-dom";
 import { createMemoryHistory } from "history";
-import { render, fireEvent } from "@testing-library/react";
+import { screen, render, fireEvent } from "@testing-library/react";
 
 const Home = () => <h1>Home page</h1>;
 const About = () => <h1>About page</h1>;
@@ -68,10 +68,10 @@ describe("React Router", () => {
     //     <RouterComponent />
     //   </Router>
     // );
-    const { container, getByTestId } = renderWithRouter(<RouterComponent />);
-    const navbar = getByTestId("navbar");
-    const link = getByTestId("home-link");
-    expect(container.innerHTML).toMatch("Home page");
+    renderWithRouter(<RouterComponent />);
+    const navbar = screen.getByRole("navigation");
+    const link = screen.getByRole("link", { name: /home/i });
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("Home page");
     expect(navbar).toContainElement(link);
   });
 
@@ -82,10 +82,10 @@ describe("React Router", () => {
     //     <RouterComponent />
     //   </Router>
     // );
-    const { container, getByTestId } = renderWithRouter(<RouterComponent />);
-    fireEvent.click(getByTestId("contact-link"));
-    expect(container.innerHTML).toMatch("John Doe");  // todo rewrite this test, now it finds only link but not page we want to see
-                                                              // workarounds I found: 1) use <BrowserRouter> 2) use history.push('/contact/anyName')
+    renderWithRouter(<RouterComponent />);
+    fireEvent.click(screen.getByTestId("contact-link"));
+    expect(screen.getByRole("heading")).toHaveTextContent("John Doe");  // todo rewrite this test, now it finds only link but not page we want to see
+                                                                                 // workarounds I found: 1) use <BrowserRouter> 2) use history.push('/contact/anyName')
   });
 
   it("should navigate to error page if route is wrong", () => {
@@ -96,10 +96,10 @@ describe("React Router", () => {
     //     <RouterComponent />
     //   </Router>
     // );
-    const { container } = renderWithRouter(<RouterComponent />, {
+    renderWithRouter(<RouterComponent />, {
       route: "/wrong-route",
     });
-    expect(container.innerHTML).toMatch("404 Error");
+    expect(screen.getByRole("heading")).toHaveTextContent("404 Error");
   });
 
   it("rendering a component that uses withRouter", () => {
@@ -112,7 +112,7 @@ describe("React Router", () => {
     //   </Router>
     // );
     const route = "/some-route";
-    const { getByTestId } = renderWithRouter(<LocationDisplay />, { route });
-    expect(getByTestId("location-display")).toHaveTextContent(route);
+    renderWithRouter(<LocationDisplay />, { route });
+    expect(screen.getByTestId("location-display")).toHaveTextContent(route);
   });
 });
