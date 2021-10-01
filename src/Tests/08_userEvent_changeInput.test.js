@@ -11,7 +11,7 @@ describe('App', () => {
     await screen.findByText(/Signed in as/);
 
     // before fire change event we DON'T EXPECT to see the next text "Looking for JavaScript"
-    expect(screen.queryByText(/Looking for JavaScript/)).toBeNull();
+    expect(screen.queryByText(/Looking for JavaScript/)).not.toBeInTheDocument();
 
     // simulate filling of input with the next "JavaScript" value
     userEvent.type(screen.getByRole('textbox'), 'JavaScript');
