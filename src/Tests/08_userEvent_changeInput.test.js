@@ -41,6 +41,6 @@ describe('App', () => {
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox).not.toBeChecked();
     userEvent.dblClick(checkbox);
-    expect(checkbox).toHaveBeenCalledTimes(2);
+    expect(handleChange).toHaveBeenCalledTimes(2);
   })
 })
