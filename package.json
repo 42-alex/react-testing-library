@@ -1,6 +1,6 @@
 {
-  "name": "robinwieruch",
-  "description": "Exercises by article: https://www.robinwieruch.de/react-testing-library",
+  "name": "react-testing-library",
+  "description": "Testing examples on RTL from the following sources: 1) https://www.robinwieruch.de/react-testing-library; 2) https://www.youtube.com/watch?v=v4pycbXkP1Y&list=PLNkWIWHIRwMEsMUc0B-lYb7DTLroWlKLK",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,9 +11,11 @@
     "history": "^5.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
     "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "redux": "^4.1.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
