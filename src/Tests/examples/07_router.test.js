@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
-import { Link, Route, Router, Switch, useParams } from "react-router-dom";
+import { Link, Route, Router, Switch, useParams, MemoryRouter } from "react-router-dom";
 import { createMemoryHistory } from "history";
 import { screen, render, fireEvent } from "@testing-library/react";
 
@@ -36,7 +36,7 @@ const RouterComponent = () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
-      <Route path="/contact:name" component={Contact} />
+      <Route path="/contact/:name" component={Contact} />
       <Route component={Error} />
     </Switch>
 
@@ -82,10 +82,9 @@ describe("React Router", () => {
     //     <RouterComponent />
     //   </Router>
     // );
-    renderWithRouter(<RouterComponent />);
+    render(<RouterComponent />,  { wrapper: MemoryRouter });
     fireEvent.click(screen.getByTestId("contact-link"));
-    expect(screen.getByRole("heading")).toHaveTextContent("John Doe");  // todo rewrite this test, now it finds only link but not page we want to see
-                                                                                 // workarounds I found: 1) use <BrowserRouter> 2) use history.push('/contact/anyName')
+    expect(screen.getByRole("heading")).toHaveTextContent("John Doe");
   });
 
   it("should navigate to error page if route is wrong", () => {
