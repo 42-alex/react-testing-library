@@ -10,7 +10,7 @@ describe('SearchContainer - getByRole', () => {
     render(<SearchContainer />);
 
     // expect(screen.getByRole('unused_role')).toBeInTheDocument();  // fails because there is no such role
-                                                                       // but it will suggest you in terminal all roles you can reach in the current HTML
+    //                                                               // but it will suggest you in terminal all roles you can reach in the current HTML
   })
 
   // there is only one accessible role "textbox". This is the implicit role of our <input /> and we can use it to find our element.
